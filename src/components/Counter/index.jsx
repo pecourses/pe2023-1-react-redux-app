@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import { decrement, increment, setStep } from '../../store/slices/counterSlice'
 
 function Counter (props) {
   const { count, step, incrementCount, decrementCount, setNewStep } = props
@@ -20,14 +21,14 @@ function Counter (props) {
 }
 
 const mapStateToProps = state => {
-  return state
+  return state.counter
 }
 
 const mapDispathToProps = dispatch => {
   return {
-    incrementCount: () => dispatch({ type: 'increment' }),
-    decrementCount: () => dispatch({ type: 'decrement' }),
-    setNewStep: value => dispatch({ type: 'setStep', value })
+    incrementCount: () => dispatch(increment()),
+    decrementCount: () => dispatch(decrement()),
+    setNewStep: value => dispatch(setStep(value)) // => action.payload
   }
 }
 
