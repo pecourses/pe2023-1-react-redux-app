@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import counterReducer from './slices/counterSlice';
+import themeReducer from './slices/themeSlice';
 
 const store = configureStore({
   reducer: {
     counter: counterReducer,
+    theme: themeReducer,
   },
 });
 
@@ -13,9 +15,7 @@ export default store;
 //     count: 0,
 //     step: 1,
 //   },
-//   {usersData:{
-//     users:[],
-//     isFetching:false,
-//     error:null
-//   }}
+//   theme: {
+//     isLight: true,
+//   }
 // }
